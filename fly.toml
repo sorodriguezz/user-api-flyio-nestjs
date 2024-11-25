@@ -1,0 +1,20 @@
+# fly.toml app configuration file generated for user-api-nestjs on 2024-11-16T13:34:32-03:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'user-api-nestjs'
+primary_region = 'scl'
+
+[build]
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  size = 'shared-cpu-1x'
